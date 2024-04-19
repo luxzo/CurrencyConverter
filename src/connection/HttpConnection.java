@@ -31,9 +31,7 @@ public class HttpConnection {
             response = client
                     .send(request, HttpResponse.BodyHandlers.ofString());
             return new Gson().fromJson(response.body(), Currency.class);
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        } catch (InterruptedException e) {
+        } catch (IOException | InterruptedException e) {
             throw new RuntimeException(e);
         }
     }
