@@ -1,4 +1,4 @@
-import javax.swing.*;
+import java.util.Locale;
 import java.util.Scanner;
 
 public class Menu {
@@ -95,8 +95,8 @@ public class Menu {
     private void makeConversion() {
         ConversionOfCurrency conversionOfCurrency = new ConversionOfCurrency(baseCurrency, targetCurrency, amountToConvert);
         conversionOfCurrency.currencyConversionOperation();
-        System.out.printf("%nTasa de cambio de %s a %s = %.4f %n", baseCurrency, targetCurrency, conversionOfCurrency.getConversion_rate());
-        System.out.printf("%s %s convertido a %s es: %.4f %n%n", amountToConvert, baseCurrency, targetCurrency, conversionOfCurrency.getTotalConverted());
+        System.out.printf(Locale.US, "%nTasa de cambio de %s a %s = %.4f %n", baseCurrency, targetCurrency, conversionOfCurrency.getConversion_rate());
+        System.out.printf(Locale.US, "%s %s convertido a %s es: %.4f %n%n", amountToConvert, baseCurrency, targetCurrency, conversionOfCurrency.getTotalConverted());
     }
 
     private boolean validateMenuOption(String menuOption) {
