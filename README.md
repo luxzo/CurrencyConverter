@@ -11,7 +11,7 @@ Este proyecto es parte de la formación Alura en Java, que realiza la conversió
 ![Divisas de destino](https://github.com/luxzo/CurrencyConverter/blob/master/img/divisas_destino.png)
 4. Introduzca la cantidad que desea convertir:
 ![Cantidad a convertir](https://github.com/luxzo/CurrencyConverter/blob/master/img/cantidad_conversion.png)
-5. El programa mostrará las divisas elegidas con el tipo de cambio actual, seguido de la conversión realizada. Si desea realizar una conversión elija 1, si desea salir elija 2.
+5. El programa mostrará las divisas elegidas con el tipo de cambio actual, seguido de la conversión realizada. Si desea realizar otra conversión elija 1, si desea salir elija 2.
 ![Conversion realizada](https://github.com/luxzo/CurrencyConverter/blob/master/img/conversion_realizada.png)
 
 ## Copyright
