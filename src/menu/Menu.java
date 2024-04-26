@@ -19,6 +19,7 @@ public class Menu {
         do {
             System.out.println("Divisas de origen");
             showCurrencies();
+            System.out.println("0) Historial");
             System.out.println("9) Salir");
             System.out.print("Elija la opción de divisa de origen: ");
             menuOption = sc.nextLine();
@@ -31,8 +32,9 @@ public class Menu {
                 System.out.println("\nHasta pronto");
                 sc.close();
                 System.exit(0);
-            }
-            else
+            } else if (menuOption.equals("0")) {
+                showHistory();
+            } else
                 System.out.println("\nOpción no válida\n");
         } while (!menuOption.equals("9") && !validateMenuOption(menuOption));
     }
@@ -83,7 +85,7 @@ public class Menu {
 
     private void checkAmountAndConvert() {
         do {
-            System.out.print("Ingrese la cantidad a convertir mayor a 0: ");
+            System.out.print("Ingrese la cantidad a convertir mayor a 0 (acepta hasta 4 decimales): \n");
             amountToConvert = sc.nextLine();
             if (validateAmountToConvert(amountToConvert))
                 makeConversion();
@@ -93,10 +95,10 @@ public class Menu {
     }
 
     private void makeConversion() {
-        ConversionOfCurrency conversionOfCurrency = new ConversionOfCurrency(baseCurrency, targetCurrency, amountToConvert);
-        conversionOfCurrency.currencyConversionOperation();
-        System.out.printf(Locale.US, "%nTasa de cambio de %s a %s = %.4f %n", baseCurrency, targetCurrency, conversionOfCurrency.getConversion_rate());
-        System.out.printf(Locale.US, "%s %s convertido a %s es: %.4f %n%n", amountToConvert, baseCurrency, targetCurrency, conversionOfCurrency.getTotalConverted());
+        CurrencyConversion currencyConversion = new CurrencyConversion(baseCurrency, targetCurrency, amountToConvert);
+        currencyConversion.currencyConversionOperation();
+        System.out.printf(Locale.US, "%nTasa de cambio de %s a %s = %.4f %n", baseCurrency, targetCurrency, currencyConversion.getConversion_rate());
+        System.out.printf(Locale.US, "%s %s convertido a %s es: %.4f %n%n", amountToConvert, baseCurrency, targetCurrency, currencyConversion.getTotalConverted());
     }
 
     private boolean validateMenuOption(String menuOption) {
@@ -117,6 +119,13 @@ public class Menu {
                 e.getMessage();
             }
         return amount > 0.0;
+    }
+
+    private void showHistory() {
+        FileHandling fileHandling = new FileHandling();
+        System.out.println("******************************************\nHistorial de conversiones:\n");
+        fileHandling.showHistory();
+        System.out.println();
     }
 
     private void setBaseCurrency(String baseCurrencyOption) {
